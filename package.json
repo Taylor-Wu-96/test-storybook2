@@ -15,7 +15,8 @@
 		"build": "tsup",
 		"build:dev": "tsup --watch",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"percy-storybook": "percy storybook ./storybook-static"
 	},
 	"keywords": [
 		"demo",
@@ -45,6 +46,8 @@
 		"@babel/preset-env": "^7.21.5",
 		"@babel/preset-react": "^7.18.6",
 		"@babel/preset-typescript": "^7.21.5",
+		"@percy/cli": "^1.30.1",
+		"@percy/storybook": "^6.0.2",
 		"@storybook/addon-essentials": "7.0.8",
 		"@storybook/addon-interactions": "7.0.8",
 		"@storybook/addon-links": "7.0.8",

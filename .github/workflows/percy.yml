@@ -1,0 +1,24 @@
+name: "Percy"
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # or whatever version you're using
+      - name: Install dependencies
+        run: yarn install # or npm install, depending on your package manager
+      - name: Instanll percy
+        run: yarn add @percy/cli @percy/storybook
+      - name: Build storybook
+        run: yarn build-storybook
+      - name: Run visual testing
+        run: npx percy storybook ./storybook-static
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
