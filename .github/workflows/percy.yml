@@ -3,8 +3,6 @@ on:
     pull_request:
       branches:
         - main
-      paths-ignore:
-        - '**/*' # This prevents triggering on changes in other files
       types:
         - opened
         - synchronize
