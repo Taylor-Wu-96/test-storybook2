@@ -1,7 +1,17 @@
 name: "Percy"
-on: [pull_request]
+on:
+    pull_request:
+      branches:
+        - main
+      paths-ignore:
+        - '**/*' # This prevents triggering on changes in other files
+      types:
+        - opened
+        - synchronize
+        - reopened
 jobs:
   build:
+    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'release'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
