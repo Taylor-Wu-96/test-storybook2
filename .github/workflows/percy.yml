@@ -22,8 +22,6 @@ jobs:
           node-version: "20" # or whatever version you're using
       - name: Install dependencies
         run: npm install # or npm install, depending on your package manager
-      - name: Instanll percy
-        run: npm add @percy/cli @percy/storybook
       - name: Build storybook
         run: npm run build-storybook
       - name: Run visual testing
