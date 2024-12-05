@@ -1,17 +1,16 @@
-name: "Build and Deploy"
+name: Build
 on:
   pull_request:
-    types:
-      - closed # Trigger when a pull request is closed (merged or not)
-    branches:
-      - main # Monitor the `main` branch for pull requests
+    types: [closed]
+    branches: 
+      - main
 
 jobs:
   build_and_deploy:
-    if: >
-      github.event.pull_request.merged == true &&
-      startsWith(github.event.pull_request.head.ref, 'release/')
     runs-on: ubuntu-latest
+    if: >
+      github.event.pull_request.merged == true && 
+      startsWith(github.head_ref, 'release/')
     steps:
       - name: Echo Branch Information
         run: echo "Merged from release branch to main."
