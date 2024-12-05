@@ -9,7 +9,7 @@ on:
         - reopened
 jobs:
   build:
-    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'release'
+    if: contains(github.event.pull_request.head.ref, 'release') && github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
